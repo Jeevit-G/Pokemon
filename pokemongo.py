@@ -111,12 +111,12 @@ while menu_choice != 'Z':
         attack_used.append(attack_used)
         defense_used = input("Defense Used: ")
         defnese_used.append(defense_used)
-        a = '''INSERT INTO cuz_music(name, last_name, gender_id, dob, instrument_id, school_id,
-                day_id, lesson_time, parent_name, parent_last, parent_phone, paid)
+        a = '''INSERT INTO pokemongo(dex, pokemon, form, type1_id, type2_id, intro_id,
+                rarity_id, cp_used , attack_used, defense_used)
                 VALUES(? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,?)'''
        
        
-        cursor.execute(a, new_students)
+        cursor.execute(a, new_pokemon)
         db.commit()
         db.close()
    
