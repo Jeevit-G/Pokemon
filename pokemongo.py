@@ -72,7 +72,7 @@ while menu_choice != 'Z':
     elif menu_choice == 'C':
         print_query('CP over 5000')
     elif menu_choice == 'D':
-        print_query('Highest to Lowest Attack')
+        print_query('HTL Attack')
     elif menu_choice == 'E':
         print_query('Highest to Lowest Combat Power')
     elif menu_choice == 'F':
