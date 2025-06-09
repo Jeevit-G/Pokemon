@@ -86,8 +86,8 @@ while menu_choice != 'Z':
     elif menu_choice == 'J':
         print_query ('Weakest Stats Pokemon')
     elif menu_choice == 'K':
-        name = input('Enter student name: ')
-        print_parameter_query("name, last_name, instrument, gender, lesson_time", "name = ?",name)
+        name = input('Enter Pokemon name: ')
+        print_parameter_query("dex, pokemon, form, type1, type2", "pokemon = ?",pokemon)
     elif menu_choice == 'O':
         db = sqlite3.connect(DB_NAME)
         cursor = db.cursor()
