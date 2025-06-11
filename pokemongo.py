@@ -79,7 +79,7 @@ while menu_choice != 'Z':
     elif menu_choice == 'F':
         print_query('Highest to Lowest Defense')
     elif menu_choice == 'G':
-        print_query('Introduced in Gen4 and are Dragon type')
+        print_query('Introduced in Generation iv and are Dragon type')
     elif menu_choice == 'H':
         print_query('Rarity is Legendary and is not Base form')
     elif menu_choice == 'I':
