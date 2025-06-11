@@ -43,7 +43,7 @@ def print_parameter_query(fields:str, where:str, parameter):
     db.close()  
 
 
-
+pokemon_list = []
 
 menu_choice = ''
 while menu_choice != 'Z':
@@ -90,37 +90,37 @@ while menu_choice != 'Z':
         pokemon = input('Enter Pokemon name: ')
         print_parameter_query("dex, pokemon, form, type1, type2", "pokemon = ?",pokemon)
     elif menu_choice == 'L':
-        intro = input('Enter A Generation: ')
+        intro = input('Enter A Generation In Roman Numericals: ')
         print_parameter_query("dex, pokemon, form, type1, type2", "intro = ?",intro)
     elif menu_choice == 'O':
         db = sqlite3.connect(DB_NAME)
         cursor = db.cursor()
         dex = input("Pokemon Dex Number: ")
-        pokemongo.append(dex)
+        pokemon_list.append(dex)
         pokemon = input("Pokemon Name: ")
-        pokemongo.append(pokemon)
+        pokemon_list.append(pokemon)
         form = input("Pokemon Form: ")
-        pokemongo.append(form)
-        type1 = input("Pokemon's Primary Typing: ")
-        pokemongo.append(type1_id)
-        type2 = input("Pokemon's Secondary Typing: ")
-        pokemongo.append(type2_id)
-        intro = input("Generation Introduced (Gen_): ")
-        pokemongo.append(intro_id)
-        rarity = input("Pokemon's Rarity: ")
-        pokemongo.append(rarity_id)
+        pokemon_list.append(form)
+        type1_id = input("Pokemon's Primary Typing: ")
+        pokemon_list.append(type1_id)
+        type2_id = input("Pokemon's Secondary Typing: ")
+        pokemon_list.append(type2_id)
+        intro_id = input("Generation Introduced In Roman Numericals: ")
+        pokemon_list.append(intro_id)
+        rarity_id = input("Pokemon's Rarity: ")
+        pokemon_list.append(rarity_id)
         cp_used = input("CP Used: ")
-        pokemongo.append(cp_used)
+        pokemon_list.append(cp_used)
         attack_used = input("Attack Used: ")
-        pokemongo.append(attack_used)
+        pokemon_list.append(attack_used)
         defense_used = input("Defense Used: ")
-        pokemongo.append(defense_used)
+        pokemon_list.append(defense_used)
         a = '''INSERT INTO pokemongo(dex, pokemon, form, type1_id, type2_id, intro_id,
                 rarity_id, cp_used , attack_used, defense_used)
-                VALUES(? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,?)'''
+                VALUES(? ,? ,? ,? ,? ,? ,? ,? ,? ,?)'''
        
        
-        cursor.execute(a, new_pokemon)
+        cursor.execute(a, pokemon_list)
         db.commit()
         db.close()
    
