@@ -25,10 +25,10 @@ def print_query(view_name:str):
     db.close()
 
 
-TABLES = (" pokemongo"
-            "LEFT JOIN type1 on pokemongo.type1_id = type1.type1_id"
-            "LEFT JOIN type2 on pokemongo.type2_id = type2.type2_id"
-            "LEFT JOIN rarity on pokemongo.rarity_id = rarity.rarity_id"
+TABLES = (" pokemongo "
+            "LEFT JOIN type1 on pokemongo.type1_id = type1.type1_id "
+            "LEFT JOIN type2 on pokemongo.type2_id = type2.type2_id "
+            "LEFT JOIN rarity on pokemongo.rarity_id = rarity.rarity_id "
             "LEFT JOIN intro on pokemongo.intro_id = intro.intro_id ")
 
 
@@ -47,7 +47,7 @@ def print_parameter_query(fields:str, where:str, parameter):
 
 menu_choice = ''
 while menu_choice != 'Z':
-    menu_choice = input('Welcome to the Music Lessons database\n\n'
+    menu_choice = input('Welcome to the Pokemon GO Master Class Ranking Database\n\n'
                     'Type the letter for the information you want:\n'
                     'A: All Pokemon Data\n'
                     'B: Base Form Pokemon With Under 4000 Combat Power\n'
@@ -59,7 +59,8 @@ while menu_choice != 'Z':
                     'H: Rarity Is Legendary And Is Not Base Form\n'
                     'I: Strongest Water Type\n'
                     'J: Weakest Stats Pokemon\n'
-                    'K: Other Information\n'
+                    'K: Search Pokemon\n'
+                    'L: Search Generation\n'
                     'O: Add Information\n'
                     'Z: Exit\n\nType option here: ')
 
@@ -86,8 +87,11 @@ while menu_choice != 'Z':
     elif menu_choice == 'J':
         print_query ('Weakest Stats Pokemon')
     elif menu_choice == 'K':
-        name = input('Enter Pokemon name: ')
+        pokemon = input('Enter Pokemon name: ')
         print_parameter_query("dex, pokemon, form, type1, type2", "pokemon = ?",pokemon)
+    elif menu_choice == 'L':
+        intro = input('Enter A Generation: ')
+        print_parameter_query("dex, pokemon, form, type1, type2", "pokemon = ?",intro)
     elif menu_choice == 'O':
         db = sqlite3.connect(DB_NAME)
         cursor = db.cursor()
