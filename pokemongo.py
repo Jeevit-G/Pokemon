@@ -88,6 +88,7 @@ while menu_choice != 'Z':
         print_query ('Weakest Stats Pokemon')
     elif menu_choice == 'K':
         pokemon = input('Enter Pokemon name: ')
+        pokemon = pokemon.capitalize()
         print_parameter_query("dex, pokemon, form, type1, type2", "pokemon = ?",pokemon)
     elif menu_choice == 'L':
         intro = input('Enter A Generation In Roman Numericals: ')
